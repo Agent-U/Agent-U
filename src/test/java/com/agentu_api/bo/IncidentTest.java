@@ -27,8 +27,5 @@ public class IncidentTest {
         assertNotNull(Incident.class.getDeclaredField("id").getAnnotation(NonNull.class));
     }
 
-    @Test
-    void IncidentCleEtrangere() throws NoSuchFieldException {
-        assertNotNull(Incident.class.getDeclaredField("etudiant").getAnnotation(OneToOne.class));
-    }
+
 }
