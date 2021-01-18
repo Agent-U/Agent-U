@@ -8,6 +8,10 @@ import javax.persistence.Id;
 @Entity
 public class Etudiant {
 
+    public Etudiant(@NonNull String ine) {
+        this.ine = ine;
+    }
+
     @Id
     @NonNull
     private String ine;
