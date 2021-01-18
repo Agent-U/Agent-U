@@ -18,12 +18,12 @@ public class Agent {
     private String prenom;
 
 
-
+/*
     public Agent(String nom, String prenom) {
         this.nom = nom;
         this.prenom = prenom;
     }
-
+*/
     public String getId() {
         return id;
     }

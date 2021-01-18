@@ -27,7 +27,7 @@ public class AgentServiceImplTest {
         var agentRepo = mock(AgentRepository.class);
         var agentService = new AgentServiceImpl(agentRepo);
 
-        var agent = new Agent("Alber", "Camus");
+        var agent = new Agent();
         agentService.createAgent(agent);
 
         verify(agentRepo).save(agent);
