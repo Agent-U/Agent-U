@@ -1,7 +1,9 @@
 package com.agentu_api;
 
+import com.agentu_api.bo.Agent;
 import com.agentu_api.bo.Etudiant;
 import com.agentu_api.bo.Incident;
+import com.agentu_api.repository.AgentRepository;
 import com.agentu_api.repository.EtudiantRepository;
 import com.agentu_api.repository.IncidentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +22,21 @@ public class AgentU_Api {
 
     @Bean
     @Autowired
-    public CommandLineRunner demo(EtudiantRepository repository, IncidentRepository incidentRepository) {
+    public CommandLineRunner demo(EtudiantRepository repository, IncidentRepository incidentRepository, AgentRepository agentRepository) {
         return (args) -> {
             var Bob = new Etudiant("Bob710");
             var Chuck = new Etudiant("Chuck540");
+
+            var a = new Agent();
+            var b = new Agent();
+            var c = new Agent();
+            var d = new Agent();
+            var e = new Agent();
+            var f = new Agent();
+            var g = new Agent();
+
+
+            //bk.setId("iiiiddddd");
 
             Incident incident = new Incident();
             incident.setId("Incident10");
@@ -40,6 +53,16 @@ public class AgentU_Api {
             // save a couple of trainers
             repository.save(Bob);
             repository.save(Chuck);
+
+            agentRepository.save(a);
+            agentRepository.save(b);
+            agentRepository.save(c);
+            agentRepository.save(d);
+            agentRepository.save(e);
+            agentRepository.save(f);
+            agentRepository.save(g);
+
+            //agentRepository.save(cl);
         };
     }
 
