@@ -9,17 +9,21 @@ import javax.persistence.Id;
 public class Evenement {
     @Id
     @NonNull
-    private int id;
+    private String id;
     private String titre;
     private String image_url;
     private String Detail;
 
 
+    public Evenement(String id) {
+        this.id = id;
+    }
+
     public Evenement() {
 
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -35,7 +39,7 @@ public class Evenement {
         return Detail;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
