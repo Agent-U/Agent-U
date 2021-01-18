@@ -1,8 +1,10 @@
 package com.agentu_api.controller;
 
 import com.agentu_api.bo.Agent;
+import com.agentu_api.bo.Etudiant;
 import com.agentu_api.service.AgentService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,7 +24,7 @@ public class AgentController {
     }
 
     @GetMapping(value="/{id}")
-    Agent getAgent(String id){
+    Agent getAgent(@PathVariable String id){
         return agentService.getAgent(id);
     }
 
