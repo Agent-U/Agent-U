@@ -12,15 +12,13 @@ public class Incident {
 
     @Id
     @NonNull
-    private int id;
+    private String id;
     private Date date;
     private String motif;
 
-    @OneToOne(mappedBy="ine")
-    private Etudiant etudiant;
 
     @Id
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -32,11 +30,8 @@ public class Incident {
         return motif;
     }
 
-    public Etudiant getEtudiant() {
-        return etudiant;
-    }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -49,7 +44,4 @@ public class Incident {
         this.motif = motif;
     }
 
-    public void setEtudiant(Etudiant etudiant) {
-        this.etudiant = etudiant;
-    }
 }
