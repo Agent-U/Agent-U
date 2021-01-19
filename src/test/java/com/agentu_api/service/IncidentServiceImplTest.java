@@ -21,7 +21,7 @@ public class IncidentServiceImplTest {
     }
 
     @Test
-    void getTrainer_doitAppelerLeRepository() {
+    void getIncident_doitAppelerLeRepository() {
         var incidentRepo = mock(IncidentRepository.class);
         var incidentService = new IncidentServiceImpl(incidentRepo);
 
@@ -31,7 +31,7 @@ public class IncidentServiceImplTest {
     }
 
     @Test
-    void createTrainer_shouldCallTheRepository() {
+    void createIncident_shouldCallTheRepository() {
         var incidentRepo = mock(IncidentRepository.class);
         var incidentService = new IncidentServiceImpl(incidentRepo);
 

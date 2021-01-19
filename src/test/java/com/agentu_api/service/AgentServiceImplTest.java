@@ -11,7 +11,7 @@ import static org.mockito.Mockito.verify;
 public class AgentServiceImplTest {
 
     @Test
-    void getAllTrainers_shouldCallTheRepository() {
+    void getAllAgent_shouldCallTheRepository() {
         var agentRepo = mock(AgentRepository.class);
         var agentService = new AgentServiceImpl(agentRepo);
 
@@ -23,7 +23,7 @@ public class AgentServiceImplTest {
 
 
     @Test
-    void createTrainer_shouldCallTheRepository() {
+    void createAgent_shouldCallTheRepository() {
         var agentRepo = mock(AgentRepository.class);
         var agentService = new AgentServiceImpl(agentRepo);
 
