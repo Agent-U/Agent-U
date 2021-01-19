@@ -2,9 +2,11 @@ package com.agentu_api;
 
 import com.agentu_api.bo.Agent;
 import com.agentu_api.bo.Etudiant;
+import com.agentu_api.bo.Evenement;
 import com.agentu_api.bo.Incident;
 import com.agentu_api.repository.AgentRepository;
 import com.agentu_api.repository.EtudiantRepository;
+import com.agentu_api.repository.EvenementRepository;
 import com.agentu_api.repository.IncidentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -21,7 +23,8 @@ public class AgentU_Api {
 
     @Bean
     @Autowired
-    public CommandLineRunner demo(EtudiantRepository repository, IncidentRepository incidentRepository, AgentRepository agentRepository) {
+    public CommandLineRunner demo(EtudiantRepository repository, IncidentRepository incidentRepository,
+                                  AgentRepository agentRepository, EvenementRepository evenementRepository) {
         return (args) -> {
             var Bob = new Etudiant("1");
             var Chuck = new Etudiant("2");
@@ -46,12 +49,6 @@ public class AgentU_Api {
             incident1.setEtudiant(Bob);
 
 
-
-           // Bob.setIncidents(incident);
-            //Bob.setIncidents(incident1);
-          //  repository.save(Bob);
-          //  repository.save(Chuck);
-
             incidentRepository.save(incident);
             incidentRepository.save(incident1);
 
@@ -72,7 +69,7 @@ public class AgentU_Api {
 
 
 
-            // save a couple of trainers
+            // ajouter des agents
 
 
             agentRepository.save(a);
@@ -83,7 +80,14 @@ public class AgentU_Api {
             agentRepository.save(f);
             agentRepository.save(g);
 
-            //agentRepository.save(cl);
+            //ajouter des évenements
+            Evenement evenement1 = new Evenement();
+            evenement1.setTitre("Soirée dance");
+
+            Evenement evenement2 = new Evenement();
+            evenement2.setTitre("Youga");
+            evenementRepository.save(evenement1);
+            evenementRepository.save(evenement2);
         };
     }
 
