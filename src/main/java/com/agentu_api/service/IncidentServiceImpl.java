@@ -33,4 +33,18 @@ public class IncidentServiceImpl implements IncidentService{
     public Incident creerIncident(Incident incident) {
         return incidentRepository.save(incident);
     }
+
+    @Override
+    public void supprimerIncident(String idIncident) {
+        incidentRepository.deleteById(idIncident);
+    }
+
+    /**
+     * Si l'incident  existe déja, save va modifier l'incident
+     * sinon, elle va créer un nouvel incident
+     * */
+    @Override
+    public void modifierIncident(Incident incident) {
+        incidentRepository.save(incident);
+    }
 }
