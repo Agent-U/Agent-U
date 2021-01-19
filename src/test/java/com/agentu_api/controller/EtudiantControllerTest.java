@@ -23,15 +23,15 @@ public class EtudiantControllerTest {
     }
 
     @Test
-    void getAllTrainers_shouldCallTheService() {
+    void getAllEtudiants_shouldCallTheService() {
         etudiantController.getAllEtudiants();
 
         verify(etudiantService).getListeEtudiants();
     }
 
     @Test
-    void getTrainer_shouldCallTheService() {
-        etudiantController.getTrainer("Bob");
+    void getEtudiant_shouldCallTheService() {
+        etudiantController.getEtudiant("Bob");
 
         verify(etudiantService).getEtudiant("Bob");
     }
