@@ -1,10 +1,9 @@
 package com.agentu_api.bo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.lang.NonNull;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -15,6 +14,21 @@ public class Incident {
     private String id;
     private Date date;
     private String motif;
+
+
+    @ManyToOne(targetEntity=Etudiant.class)
+    public Etudiant getEtudiant() {
+        return etudiant;
+    }
+
+    public void setEtudiant(Etudiant etudiant) {
+        this.etudiant = etudiant;
+    }
+
+
+    @JsonIgnoreProperties({ "incidents" })
+    @JoinColumn(name = "ine")
+    private Etudiant etudiant;
 
 
     @Id
