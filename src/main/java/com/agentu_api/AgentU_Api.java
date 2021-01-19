@@ -24,8 +24,40 @@ public class AgentU_Api {
     @Autowired
     public CommandLineRunner demo(EtudiantRepository repository, IncidentRepository incidentRepository, AgentRepository agentRepository) {
         return (args) -> {
-            var Bob = new Etudiant("Bob710");
-            var Chuck = new Etudiant("Chuck540");
+            var Bob = new Etudiant("1");
+            var Chuck = new Etudiant("2");
+
+
+
+            repository.save(Bob);
+            repository.save(Chuck);
+
+
+
+
+            Incident incident = new Incident();
+            incident.setId("Incident10");
+            incident.setMotif("probleme eau");
+            incident.setEtudiant(Bob);
+
+
+            Incident incident1 = new Incident();
+            incident1.setId("Incident11");
+            incident1.setMotif("probleme");
+            incident1.setEtudiant(Bob);
+
+
+
+           // Bob.setIncidents(incident);
+            //Bob.setIncidents(incident1);
+          //  repository.save(Bob);
+          //  repository.save(Chuck);
+
+            incidentRepository.save(incident);
+            incidentRepository.save(incident1);
+
+
+
 
             var a = new Agent();
             var b = new Agent();
@@ -38,21 +70,11 @@ public class AgentU_Api {
 
 
 
-            Incident incident = new Incident();
-            incident.setId("Incident10");
-            incident.setMotif("probleme eau");
-            Bob.setIncidents(incident);
 
-            Incident incident1 = new Incident();
-            incident1.setId("Incident11");
-            incident1.setMotif("probleme");
-            Bob.setIncidents(incident1);
 
-            incidentRepository.save(incident);
-            incidentRepository.save(incident1);
+
             // save a couple of trainers
-            repository.save(Bob);
-            repository.save(Chuck);
+
 
             agentRepository.save(a);
             agentRepository.save(b);

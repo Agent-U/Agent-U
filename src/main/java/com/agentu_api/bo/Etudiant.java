@@ -2,9 +2,7 @@ package com.agentu_api.bo;
 
 import org.springframework.lang.NonNull;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +25,9 @@ public class Etudiant {
     private int avisPassage ;
     private int colis;
     private String chambre;
-    @OneToMany
+
+    @OneToMany(mappedBy="etudiant")//,cascade = CascadeType.ALL)
+    @ElementCollection(targetClass=Incident.class)
     private List<Incident> incidents = new ArrayList<>();
 
     public List<Incident> getIncidents() {
