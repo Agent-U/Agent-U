@@ -20,7 +20,7 @@ public class AgentU_Api {
     public static void main(String... args){
         SpringApplication.run(AgentU_Api.class, args);
     }
-
+/*
     @Bean
     @Autowired
     public CommandLineRunner demo(EtudiantRepository repository, IncidentRepository incidentRepository,
@@ -90,5 +90,5 @@ public class AgentU_Api {
             evenementRepository.save(evenement2);
         };
     }
-
+*/
 }
