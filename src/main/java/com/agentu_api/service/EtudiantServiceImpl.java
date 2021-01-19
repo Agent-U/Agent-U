@@ -30,4 +30,18 @@ public class EtudiantServiceImpl implements EtudiantService {
     public Etudiant creerEtudiant(Etudiant etudiant) {
         return etudiantRepository.save(etudiant);
     }
+
+    @Override
+    public void supprimerEtudiant(String idEtudiant) {
+        etudiantRepository.deleteById(idEtudiant);
+    }
+
+    /**
+     * Si l'étudiant  existe déja, save va modifier l'étudiant
+     * sinon, elle va créer un nouvel étudiant
+     * */
+    @Override
+    public void modifierEtudiant(Etudiant etudiant) {
+        etudiantRepository.save(etudiant);
+    }
 }

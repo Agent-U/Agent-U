@@ -1,4 +1,5 @@
 package com.agentu_api.controller;
+import com.agentu_api.bo.Agent;
 import com.agentu_api.bo.Etudiant;
 import com.agentu_api.service.EtudiantService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +23,22 @@ public class EtudiantController {
     }
 
     @GetMapping(value="/{ine}")
-    Etudiant getTrainer(@PathVariable String ine){
+    Etudiant getEtudiant(@PathVariable String ine){
         return this.etudiantService.getEtudiant(ine);
+    }
+
+    @PostMapping(value = "/",consumes = "application/json")
+    Etudiant addEtudiant(@RequestBody Etudiant etudiant){
+        return this.etudiantService.creerEtudiant(etudiant);
+    }
+    @DeleteMapping(value = "/delete/{idEtudiant}")
+    void supprimerEtdiant(@PathVariable String idEtudiant){
+        this.etudiantService.supprimerEtudiant(idEtudiant);
+    }
+
+    @PutMapping("/")
+    void modifierEtdiant(@RequestBody Etudiant etudiant){
+        this.etudiantService.modifierEtudiant(etudiant);
     }
 
 }

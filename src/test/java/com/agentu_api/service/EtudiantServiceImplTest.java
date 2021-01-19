@@ -19,7 +19,7 @@ public class EtudiantServiceImplTest {
     }
 
     @Test
-    void getTrainer_shouldCallTheRepository() {
+    void getEtudiant_shouldCallTheRepository() {
         var etudiantRepo = mock(EtudiantRepository.class);
         var etudiantService = new EtudiantServiceImpl(etudiantRepo);
 
@@ -29,7 +29,7 @@ public class EtudiantServiceImplTest {
     }
 
     @Test
-    void createTrainer_shouldCallTheRepository() {
+    void createEtudiant_shouldCallTheRepository() {
         var etudiantRepo = mock(EtudiantRepository.class);
         var etudiantService = new EtudiantServiceImpl(etudiantRepo);
 
