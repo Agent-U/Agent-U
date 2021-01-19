@@ -30,4 +30,14 @@ public class EvenementServiceImpl implements EvenementService{
     public Evenement creerEvenement(Evenement evenement) {
         return evenementRepository.save(evenement);
     }
+
+    @Override
+    public void supprimerEvenement(String idEvenement) {
+        evenementRepository.deleteById(idEvenement);
+    }
+
+    @Override
+    public void modifierEvenement(Evenement evenement) {
+        evenementRepository.save(evenement);
+    }
 }
