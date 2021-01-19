@@ -30,7 +30,7 @@ public class IncidentControllerTest {
     }
 
     @Test
-    void getTrainer_shouldCallTheService() {
+    void getIncidents_shouldCallTheService() {
         incidentController.getIncident("Inc10");
 
         verify(incidentService).getIncident("Inc10");
