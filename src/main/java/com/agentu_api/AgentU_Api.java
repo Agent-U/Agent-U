@@ -3,9 +3,11 @@ package com.agentu_api;
 import com.agentu_api.bo.Agent;
 import com.agentu_api.bo.Etudiant;
 import com.agentu_api.bo.Incident;
+import com.agentu_api.bo.RendezVous;
 import com.agentu_api.repository.AgentRepository;
 import com.agentu_api.repository.EtudiantRepository;
 import com.agentu_api.repository.IncidentRepository;
+import com.agentu_api.repository.RendezVousRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -21,7 +23,7 @@ public class AgentU_Api {
 
     @Bean
     @Autowired
-    public CommandLineRunner demo(EtudiantRepository repository, IncidentRepository incidentRepository, AgentRepository agentRepository) {
+    public CommandLineRunner demo(EtudiantRepository repository, IncidentRepository incidentRepository, AgentRepository agentRepository, RendezVousRepository rendezVousRepository) {
         return (args) -> {
             var Bob = new Etudiant("1");
             var Chuck = new Etudiant("2");
@@ -44,6 +46,7 @@ public class AgentU_Api {
             incident1.setId("Incident11");
             incident1.setMotif("probleme");
             incident1.setEtudiant(Bob);
+
 
 
 
@@ -71,7 +74,6 @@ public class AgentU_Api {
 
 
 
-
             // save a couple of trainers
 
 
@@ -84,6 +86,13 @@ public class AgentU_Api {
             agentRepository.save(g);
 
             //agentRepository.save(cl);
+
+            RendezVous rdv = new RendezVous();
+            rdv.setId("rdv1");
+            rdv.setMotif("problemepayement");
+            rdv.setEtudiant(Bob);
+            rdv.setAgent(a);
+            rendezVousRepository.save(rdv);
         };
     }
 

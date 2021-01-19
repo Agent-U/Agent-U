@@ -1,11 +1,11 @@
 package com.agentu_api.bo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.lang.NonNull;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Agent {
@@ -17,13 +17,21 @@ public class Agent {
     private String nom;
     private String prenom;
 
+    @OneToMany(mappedBy="agent")//,cascade = CascadeType.ALL)
+    @ElementCollection(targetClass=RendezVous.class)
+    @JsonIgnoreProperties({ "agent" })
+    private List<RendezVous> rendezVous = new ArrayList<>();
 
-/*
-    public Agent(String nom, String prenom) {
-        this.nom = nom;
-        this.prenom = prenom;
+
+    public List<RendezVous> getRendezVous() {
+        return rendezVous;
     }
-*/
+
+    public void setRendezVous(RendezVous rdv) {
+        this.rendezVous.add(rdv);
+    }
+
+
     public String getId() {
         return id;
     }
