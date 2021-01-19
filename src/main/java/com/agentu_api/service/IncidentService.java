@@ -7,4 +7,6 @@ public interface IncidentService {
     Iterable<Incident> getListeIncidents();
     Incident getIncident(String id);
     Incident creerIncident(Incident incident );
+    void supprimerIncident(String idIncident);
+    void modifierIncident(Incident incident);
 }

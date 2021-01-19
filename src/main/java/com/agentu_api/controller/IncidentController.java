@@ -2,16 +2,12 @@ package com.agentu_api.controller;
 
 import com.agentu_api.bo.Etudiant;
 import com.agentu_api.bo.Incident;
-import com.agentu_api.service.EtudiantService;
 import com.agentu_api.service.IncidentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/incident")
+@RequestMapping(value = "/incidents")
 public class IncidentController {
     @Autowired
     private final IncidentService incidentService;
@@ -30,4 +26,19 @@ public class IncidentController {
     Incident getIncident(@PathVariable String id){
         return this.incidentService.getIncident(id);
     }
+
+    @PostMapping(value = "/",consumes = "application/json")
+    Incident addIncident(@RequestBody Incident incident){
+        return this.incidentService.creerIncident(incident);
+    }
+    @DeleteMapping(value = "/delete/{idIncident}")
+    void supprimerIncident(@PathVariable String idIncident){
+        this.incidentService.supprimerIncident(idIncident);
+    }
+
+    @PutMapping("/")
+    void modifierIncident(@RequestBody Incident incident){
+        this.incidentService.modifierIncident(incident);
+    }
+
 }
