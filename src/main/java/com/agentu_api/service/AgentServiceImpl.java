@@ -21,15 +21,21 @@ public class AgentServiceImpl implements AgentService {
 
     @Override
     public Agent getAgent(String id) {
-        // TODO
         return this.agentRepository.findById(id).orElse(null);
     }
 
     @Override
     public Agent createAgent(Agent agent) {
-        // TODO
         this.agentRepository.save(agent);
         return agent;
     }
 
+    public void deleteAgent(String id){
+        agentRepository.deleteById(id);
+    }
+
+    @Override
+    public void updateAgent(Agent agent){
+        agentRepository.save(agent);
+    }
 }

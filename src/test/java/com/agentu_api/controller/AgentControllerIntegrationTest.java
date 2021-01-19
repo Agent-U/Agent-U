@@ -44,5 +44,19 @@ class AgentControllerIntegrationTest {
         assertEquals("7", agents[6].getId());
     }
 
+    @Test
+    void AddTrainer_ShouldChangeSizeOfGetAllTrainers() {
+        Agent[] trainers = this.restTemplate.getForObject("http://localhost:" + port + "/agents/", Agent[].class);
+        assertNotNull(trainers);
+
+        Agent newAgent = new Agent();
+
+        Agent newAgentGet = this.restTemplate.getForObject("http://localhost:" + port + "/agents/New", Agent.class);
+        //assertNotNull(newAgentGet);
+
+        //enlever New de la base de données
+        this.restTemplate.delete("http://localhost:" + port + "/trainers/New");
+    }
+
 
 }

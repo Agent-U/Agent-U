@@ -7,4 +7,6 @@ public interface AgentService {
     Iterable<Agent> getAllAgents();
     Agent getAgent(String id);
     Agent createAgent(Agent agent);
+    void deleteAgent(String id);
+    void updateAgent(Agent agent);
 }
