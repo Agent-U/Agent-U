@@ -3,10 +3,8 @@ package com.agentu_api.controller;
 import com.agentu_api.bo.Agent;
 import com.agentu_api.bo.Etudiant;
 import com.agentu_api.service.AgentService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/agents")
@@ -29,7 +27,19 @@ public class AgentController {
     }
 
 
+    @PostMapping(value = "/",consumes = "application/json")
+    Agent addAgent(@RequestBody Agent agent){
+        return agentService.createAgent(agent);
+    }
 
+    @DeleteMapping("/delete/{id}")
+    void deleteAgent(@PathVariable String id){
+        agentService.deleteAgent(id);
+    }
 
-
+    @PutMapping("/")
+    void modifierAgent(@RequestBody Agent agent){
+        this.agentService.updateAgent(agent);
+    }
 }
+

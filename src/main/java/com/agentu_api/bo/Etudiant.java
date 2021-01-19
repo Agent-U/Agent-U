@@ -1,5 +1,6 @@
 package com.agentu_api.bo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
@@ -28,6 +29,7 @@ public class Etudiant {
 
     @OneToMany(mappedBy="etudiant")//,cascade = CascadeType.ALL)
     @ElementCollection(targetClass=Incident.class)
+    @JsonIgnoreProperties({ "etudiant" })
     private List<Incident> incidents = new ArrayList<>();
 
     public List<Incident> getIncidents() {
