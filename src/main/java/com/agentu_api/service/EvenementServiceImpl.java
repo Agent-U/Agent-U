@@ -22,7 +22,7 @@ public class EvenementServiceImpl implements EvenementService{
     }
 
     @Override
-    public Evenement getEvenement(String id) {
+    public Evenement getEvenement(Long id) {
         return evenementRepository.findById(id).orElse(null);
     }
 
@@ -32,7 +32,7 @@ public class EvenementServiceImpl implements EvenementService{
     }
 
     @Override
-    public void supprimerEvenement(String idEvenement) {
+    public void supprimerEvenement(Long idEvenement) {
         evenementRepository.deleteById(idEvenement);
     }
 

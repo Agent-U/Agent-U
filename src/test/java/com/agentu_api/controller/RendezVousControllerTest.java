@@ -32,8 +32,8 @@ public class RendezVousControllerTest {
 
     @Test
     void getRendezVous_shouldCallTheService() {
-        rendezVousController.getRendezVous("rdv10");
+        rendezVousController.getRendezVous((long) 1);
 
-        verify(rendezVousService).getRendezVous("rdv10");
+        verify(rendezVousService).getRendezVous((long) 1);
     }
 }

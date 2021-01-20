@@ -26,7 +26,7 @@ public class EvenementController {
     }
 
     @GetMapping(value="/{id}")
-    Evenement getEvenement(@PathVariable String id){
+    Evenement getEvenement(@PathVariable Long id){
         return this.evenementService.getEvenement(id);
     }
 
@@ -35,7 +35,7 @@ public class EvenementController {
         return this.evenementService.creerEvenement(evenement);
     }
     @DeleteMapping(value = "/delete/{idEvenement}")
-    void supprimerEvenement(@PathVariable String idEvenement){
+    void supprimerEvenement(@PathVariable Long idEvenement){
         this.evenementService.supprimerEvenement(idEvenement);
     }
 

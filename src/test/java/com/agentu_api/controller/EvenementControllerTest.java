@@ -31,8 +31,8 @@ public class EvenementControllerTest {
 
     @Test
     void getEvenement_shouldCallTheService() {
-        evenementController.getEvenement("id1");
+        evenementController.getEvenement((long) 1);
 
-        verify(evenementService).getEvenement("id1");
+        verify(evenementService).getEvenement((long) 1);
     }
 }

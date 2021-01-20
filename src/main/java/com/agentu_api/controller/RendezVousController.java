@@ -25,7 +25,7 @@ public class RendezVousController {
     }
 
     @GetMapping(value="/{id}")
-    RendezVous getRendezVous(@PathVariable String id){
+    RendezVous getRendezVous(@PathVariable Long id){
         return this.rendezVousService.getRendezVous(id);
     }
 
@@ -34,7 +34,7 @@ public class RendezVousController {
         return this.rendezVousService.creerRendezVous(rendezVous);
     }
     @DeleteMapping(value = "/delete/{idRendezVous}")
-    void supprimerRendezVous(@PathVariable String idRendezVous){
+    void supprimerRendezVous(@PathVariable Long idRendezVous){
         this.rendezVousService.supprimerRendezVous(idRendezVous);
     }
 

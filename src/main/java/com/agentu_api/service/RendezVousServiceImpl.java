@@ -23,7 +23,7 @@ public class RendezVousServiceImpl implements RendezVousService{
     }
 
     @Override
-    public RendezVous getRendezVous(String id) {
+    public RendezVous getRendezVous(Long id) {
         return rendezVousRepository.findById(id).orElse(null);
     }
 
@@ -33,7 +33,7 @@ public class RendezVousServiceImpl implements RendezVousService{
     }
 
     @Override
-    public void supprimerRendezVous(String idRendezVous) {
+    public void supprimerRendezVous(Long idRendezVous) {
         rendezVousRepository.deleteById(idRendezVous);
     }
 

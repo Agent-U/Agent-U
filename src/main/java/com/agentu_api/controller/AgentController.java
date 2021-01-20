@@ -22,7 +22,7 @@ public class AgentController {
     }
 
     @GetMapping(value="/{id}")
-    Agent getAgent(@PathVariable String id){
+    Agent getAgent(@PathVariable Long id){
         return agentService.getAgent(id);
     }
 
@@ -33,7 +33,7 @@ public class AgentController {
     }
 
     @DeleteMapping("/delete/{id}")
-    void deleteAgent(@PathVariable String id){
+    void deleteAgent(@PathVariable Long id){
         agentService.deleteAgent(id);
     }
 

@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface RendezVousRepository extends CrudRepository<RendezVous, String> {
+public interface RendezVousRepository extends CrudRepository<RendezVous, Long> {
 }
 
 

@@ -25,9 +25,9 @@ public class RendezVousServiceImplTest {
         var rendezVousRepo = mock(RendezVousRepository.class);
         var rendezVousService = new RendezVousServiceImpl(rendezVousRepo);
 
-        rendezVousService.getRendezVous("rdv10");
+        rendezVousService.getRendezVous((long) 10);
 
-        verify(rendezVousRepo).findById("rdv10");
+        verify(rendezVousRepo).findById((long) 10);
     }
 
     @Test

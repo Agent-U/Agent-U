@@ -20,7 +20,7 @@ public class AgentServiceImpl implements AgentService {
     }
 
     @Override
-    public Agent getAgent(String id) {
+    public Agent getAgent(Long id) {
         return this.agentRepository.findById(id).orElse(null);
     }
 
@@ -30,7 +30,7 @@ public class AgentServiceImpl implements AgentService {
         return agent;
     }
 
-    public void deleteAgent(String id){
+    public void deleteAgent(Long id){
         agentRepository.deleteById(id);
     }
 

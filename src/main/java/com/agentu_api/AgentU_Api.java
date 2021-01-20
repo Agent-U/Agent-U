@@ -22,7 +22,7 @@ public class AgentU_Api {
     public static void main(String... args){
         SpringApplication.run(AgentU_Api.class, args);
     }
-
+/*
     @Bean
     @Autowired
     public CommandLineRunner demo(EtudiantRepository repository, IncidentRepository incidentRepository, AgentRepository agentRepository, RendezVousRepository rendezVousRepository) {
@@ -81,7 +81,6 @@ public class AgentU_Api {
             evenement2.setTitre("Youga");
         };
     }
-
-
+*/
 
 }

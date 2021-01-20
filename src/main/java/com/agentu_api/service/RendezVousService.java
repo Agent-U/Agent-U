@@ -6,8 +6,8 @@ import com.agentu_api.bo.RendezVous;
 public interface RendezVousService {
 
     Iterable<RendezVous> getListRendezVous();
-    RendezVous getRendezVous(String id);
+    RendezVous getRendezVous(Long id);
     RendezVous creerRendezVous(RendezVous rendezVous );
-    void supprimerRendezVous(String idRendezVous);
+    void supprimerRendezVous(Long idRendezVous);
     void modifierRendezVous(RendezVous rendezVous);
 }
