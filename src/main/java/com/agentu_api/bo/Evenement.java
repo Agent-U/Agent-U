@@ -12,13 +12,13 @@ public class Evenement {
     @Id
     @NonNull
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private String id;
+    private Long id;
     private String titre;
     private String image_url;
     private String Detail;
 
 
-    public Evenement(String id) {
+    public Evenement(Long id) {
         this.id = id;
     }
 
@@ -26,7 +26,7 @@ public class Evenement {
 
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
@@ -42,7 +42,7 @@ public class Evenement {
         return Detail;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

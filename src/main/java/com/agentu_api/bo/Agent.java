@@ -13,7 +13,7 @@ public class Agent {
     @Id
     @NonNull
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private String id;
+    private Long id;
     private String nom;
     private String prenom;
 
@@ -24,7 +24,7 @@ public class Agent {
         this.prenom = prenom;
     }
 */
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
@@ -36,7 +36,7 @@ public class Agent {
         return prenom;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

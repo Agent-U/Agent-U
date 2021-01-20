@@ -26,8 +26,8 @@ public class EvenementServiceImplTest {
         var evenementRepository = mock(EvenementRepository.class);
         var evenementService = new EvenementServiceImpl(evenementRepository);
 
-        evenementService.getEvenement("id1");
-        verify(evenementRepository).findById("id1");
+        evenementService.getEvenement((long) 1);
+        verify(evenementRepository).findById((long) 1);
     }
 
     @Test

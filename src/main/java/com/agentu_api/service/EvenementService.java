@@ -5,8 +5,8 @@ import com.agentu_api.bo.Evenement;
 
 public interface EvenementService {
     Iterable<Evenement> getListeEvenement();
-    Evenement getEvenement(String id);
+    Evenement getEvenement(Long id);
     Evenement creerEvenement(Evenement evenement);
-    void supprimerEvenement(String idEvenement);
+    void supprimerEvenement(Long idEvenement);
     void modifierEvenement(Evenement evenement);
 }

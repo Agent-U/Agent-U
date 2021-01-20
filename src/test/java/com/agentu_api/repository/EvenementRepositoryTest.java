@@ -26,13 +26,13 @@ public class EvenementRepositoryTest {
 
     @Test
     void testSave(){
-        var evt = new Evenement("id1");
+        var evt = new Evenement((long) 1);
 
         evenementRepository.save(evt);
 
         var saved = evenementRepository.findById(evt.getId()).orElse(null);
 
-        assertEquals("id1", saved.getId());
+        assertEquals(1, saved.getId());
     }
 
 
