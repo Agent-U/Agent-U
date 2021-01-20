@@ -32,12 +32,26 @@ public class Etudiant {
     @JsonIgnoreProperties({ "etudiant" })
     private List<Incident> incidents = new ArrayList<>();
 
+
+    @OneToMany(mappedBy="etudiant")//,cascade = CascadeType.ALL)
+    @ElementCollection(targetClass=RendezVous.class)
+    @JsonIgnoreProperties({ "etudiant"})
+    private List<RendezVous> rendezVous = new ArrayList<>();
+
     public List<Incident> getIncidents() {
         return incidents;
     }
 
     public void setIncidents(Incident incident) {
         this.incidents.add(incident);
+    }
+
+    public List<RendezVous> getRendezVous() {
+        return rendezVous;
+    }
+
+    public void setRendezVous(RendezVous rdv) {
+        this.rendezVous.add(rdv);
     }
 
 
