@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.http.HttpMethod;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class AgentControllerIntegrationTest {
@@ -30,33 +30,31 @@ class AgentControllerIntegrationTest {
 
     @Test
     void getAgent_withId1_shouldReturnAgentWithId1() {
+
+        Agent[] agents = this.restTemplate.getForObject("http://localhost:" + port + "/agents/", Agent[].class);
         var agent1 = this.restTemplate.getForObject("http://localhost:" + port + "/agents/1", Agent.class);
-        assertNotNull(agent1);
-        assertEquals("1", agent1.getId());
+        if (agents.length == 0) {
+            assertNull(agent1);
+        } else {
+            assertNotNull(agent1);
+            assertEquals(1, agent1.getId());
+        }
     }
 
     @Test
-    void getAllAgents_shouldReturnAgentsWithId1And7() {
+    void getAllAgents_shouldReturnCoherentsIds() {
         var agents = this.restTemplate.getForObject("http://localhost:" + port + "/agents/", Agent[].class);
         assertNotNull(agents);
-        assertEquals(7, agents.length);
-        assertEquals("1", agents[0].getId());
-        assertEquals("7", agents[6].getId());
+        if (agents.length != 0) {
+            var i = agents.length;
+            assertEquals((long) 1, agents[0].getId());
+            assertEquals((long) i, agents[i-1].getId());
+            assertEquals(1, agents[0].getId());
+        }
+
     }
 
-    @Test
-    void AddTrainer_ShouldChangeSizeOfGetAllTrainers() {
-        Agent[] trainers = this.restTemplate.getForObject("http://localhost:" + port + "/agents/", Agent[].class);
-        assertNotNull(trainers);
 
-        Agent newAgent = new Agent();
-
-        Agent newAgentGet = this.restTemplate.getForObject("http://localhost:" + port + "/agents/New", Agent.class);
-        //assertNotNull(newAgentGet);
-
-        //enlever New de la base de données
-        this.restTemplate.delete("http://localhost:" + port + "/trainers/New");
-    }
 
 
 }

@@ -61,7 +61,7 @@ public class AgentControllerTest {
     @Test
     void getAgent_shouldBeAnnotated() throws NoSuchMethodException {
         Method getAgent =
-                AgentController.class.getDeclaredMethod("getAgent", String.class);
+                AgentController.class.getDeclaredMethod("getAgent", Long.class);
         GetMapping getMapping = getAgent.getAnnotation(GetMapping.class);
 
         assertNotNull(getMapping);
