@@ -15,6 +15,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication//(exclude={DataSourceAutoConfiguration.class})
 public class AgentU_Api {
@@ -26,10 +27,12 @@ public class AgentU_Api {
     @Bean
     @Autowired
     public CommandLineRunner demo(EtudiantRepository repository, IncidentRepository incidentRepository, AgentRepository agentRepository, RendezVousRepository rendezVousRepository) {
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         return (args) -> {
             var Bob = new Etudiant("1");
             var Chuck = new Etudiant("2");
-
+            Bob.setMotDePasse(bCryptPasswordEncoder.encode("Bob123"));
+            Chuck.setMotDePasse(bCryptPasswordEncoder.encode("Chuck123"));
             repository.save(Bob);
             repository.save(Chuck);
 
@@ -66,7 +69,7 @@ public class AgentU_Api {
             agentRepository.save(g);
 
 
-            RendezVous rdv = new RendezVous();
+           RendezVous rdv = new RendezVous();
             rdv.setId("rdv1");
             rdv.setMotif("problemepayement");
             rdv.setEtudiant(Bob);
