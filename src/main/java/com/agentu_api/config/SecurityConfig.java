@@ -26,7 +26,6 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
          * avec l'ajout de l'ip de front qui va
          * intéragir avec l'api dans le host
          */
-
         http.csrf().disable();
     }
 
