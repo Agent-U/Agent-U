@@ -25,7 +25,7 @@ public class IncidentServiceImpl implements IncidentService{
     }
 
     @Override
-    public Incident getIncident(String id) {
+    public Incident getIncident(Long id) {
         return incidentRepository.findById(id).orElse(null);
     }
 
@@ -35,7 +35,7 @@ public class IncidentServiceImpl implements IncidentService{
     }
 
     @Override
-    public void supprimerIncident(String idIncident) {
+    public void supprimerIncident(Long idIncident) {
         incidentRepository.deleteById(idIncident);
     }
 

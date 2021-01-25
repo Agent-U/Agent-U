@@ -31,9 +31,9 @@ public class IncidentControllerTest {
 
     @Test
     void getIncidents_shouldCallTheService() {
-        incidentController.getIncident("Inc10");
+        incidentController.getIncident((long) 10);
 
-        verify(incidentService).getIncident("Inc10");
+        verify(incidentService).getIncident((long) 10);
     }
 
 }

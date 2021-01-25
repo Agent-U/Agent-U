@@ -17,7 +17,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-@SpringBootApplication//(exclude={DataSourceAutoConfiguration.class})
+@SpringBootApplication
 public class AgentU_Api {
 
     public static void main(String... args){

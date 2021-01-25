@@ -11,9 +11,38 @@ public class Incident {
 
     @Id
     @NonNull
-    private String id;
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Long id;
     private Date date;
     private String motif;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public int getEtat() {
+        return etat;
+    }
+
+    public void setEtat(int etat) {
+        this.etat = etat;
+    }
+
+    private String description;
+    private String imageUrl;
+    private int etat;
 
 
     @ManyToOne(targetEntity=Etudiant.class)
@@ -32,7 +61,7 @@ public class Incident {
 
 
     @Id
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
@@ -45,7 +74,7 @@ public class Incident {
     }
 
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

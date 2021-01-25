@@ -23,7 +23,7 @@ public class IncidentController {
     }
 
     @GetMapping(value="/{id}")
-    Incident getIncident(@PathVariable String id){
+    Incident getIncident(@PathVariable Long id){
         return this.incidentService.getIncident(id);
     }
 
@@ -32,7 +32,7 @@ public class IncidentController {
         return this.incidentService.creerIncident(incident);
     }
     @DeleteMapping(value = "/delete/{idIncident}")
-    void supprimerIncident(@PathVariable String idIncident){
+    void supprimerIncident(@PathVariable Long idIncident){
         this.incidentService.supprimerIncident(idIncident);
     }
 

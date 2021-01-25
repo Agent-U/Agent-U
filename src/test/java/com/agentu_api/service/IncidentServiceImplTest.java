@@ -25,9 +25,9 @@ public class IncidentServiceImplTest {
         var incidentRepo = mock(IncidentRepository.class);
         var incidentService = new IncidentServiceImpl(incidentRepo);
 
-        incidentService.getIncident("incide10");
+        incidentService.getIncident((long) 10);
 
-        verify(incidentRepo).findById("incide10");
+        verify(incidentRepo).findById((long) 10);
     }
 
     @Test
