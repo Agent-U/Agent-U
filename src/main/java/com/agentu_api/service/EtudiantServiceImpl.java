@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.util.Date;
+
 @Service
 public class EtudiantServiceImpl implements EtudiantService {
 
@@ -32,7 +35,9 @@ public class EtudiantServiceImpl implements EtudiantService {
 
     @Override
     public Etudiant creerEtudiant(Etudiant etudiant) {
-        etudiant.setMotDePasse(encoder.encode(etudiant.getMotDePasse()));
+        if (!etudiant.getMotDePasse().isEmpty()){
+            etudiant.setMotDePasse(encoder.encode(etudiant.getMotDePasse()));
+        }
         return etudiantRepository.save(etudiant);
     }
 
@@ -47,6 +52,19 @@ public class EtudiantServiceImpl implements EtudiantService {
      * */
     @Override
     public void modifierEtudiant(Etudiant etudiant) {
+        if (etudiant.getPetiteEnveloppe() > etudiantRepository.findById(etudiant.getIne()).orElse(etudiant).getPetiteEnveloppe()){
+            Date date = new Date();
+            etudiant.setPetiteEnveloppeDate(date);
+        }
+
+        if (etudiant.getMotDePasse()!=null){
+            etudiant.setMotDePasse(encoder.encode(etudiant.getMotDePasse()));
+        }
+
+        /*Etudiant et = etudiantRepository.findById(etudiant.getIne()).orElse(etudiant);
+        if (etudiant.getMotDePasse()==null)
+            etudiant.setMotDePasse(et.getMotDePasse());*/
         etudiantRepository.save(etudiant);
     }
+
 }

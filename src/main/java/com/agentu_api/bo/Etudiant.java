@@ -6,6 +6,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -23,6 +24,16 @@ public class Etudiant {
     private String mail;
     private String motDePasse;
     private int petiteEnveloppe;
+
+    public Date getPetiteEnveloppeDate() {
+        return petiteEnveloppeDate;
+    }
+
+    public void setPetiteEnveloppeDate(Date petiteEnveloppeDate) {
+        this.petiteEnveloppeDate = petiteEnveloppeDate;
+    }
+
+    private Date petiteEnveloppeDate;
     private int grandeEnveloppe;
     private int avisPassage ;
     private int colis;
