@@ -15,6 +15,27 @@ public class Incident {
     private Long id;
     private Date date;
     private String motif;
+    private String lieu;
+    private String description;
+    private String imageUrl;
+    private int etat;
+
+    @JsonIgnoreProperties({ "incidents" })
+    @JoinColumn(name = "ine")
+    private Etudiant etudiant;
+
+
+
+    public String getLieu() {
+        return lieu;
+    }
+
+    public void setLieu(String lieu) {
+        this.lieu = lieu;
+    }
+
+
+
 
     public String getDescription() {
         return description;
@@ -40,9 +61,7 @@ public class Incident {
         this.etat = etat;
     }
 
-    private String description;
-    private String imageUrl;
-    private int etat;
+
 
 
     @ManyToOne(targetEntity=Etudiant.class)
@@ -54,10 +73,6 @@ public class Incident {
         this.etudiant = etudiant;
     }
 
-
-    @JsonIgnoreProperties({ "incidents" })
-    @JoinColumn(name = "ine")
-    private Etudiant etudiant;
 
 
     @Id

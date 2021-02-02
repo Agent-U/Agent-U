@@ -25,6 +25,43 @@ public class Etudiant {
     private int grandeEnveloppe;
     private int avisPassage ;
     private int colis;
+
+    public int getDatePetiteEnveloppe() {
+        return datePetiteEnveloppe;
+    }
+
+    public void setDatePetiteEnveloppe(int datePetiteEnveloppe) {
+        this.datePetiteEnveloppe = datePetiteEnveloppe;
+    }
+
+    public int getDateGrandeEnveloppe() {
+        return dateGrandeEnveloppe;
+    }
+
+    public void setDateGrandeEnveloppe(int dateGrandeEnveloppe) {
+        this.dateGrandeEnveloppe = dateGrandeEnveloppe;
+    }
+
+    public int getDateAvisPassage() {
+        return dateAvisPassage;
+    }
+
+    public void setDateAvisPassage(int dateAvisPassage) {
+        this.dateAvisPassage = dateAvisPassage;
+    }
+
+    public int getDateColis() {
+        return dateColis;
+    }
+
+    public void setDateColis(int dateColis) {
+        this.dateColis = dateColis;
+    }
+
+    private int datePetiteEnveloppe;
+    private int dateGrandeEnveloppe;
+    private int dateAvisPassage ;
+    private int dateColis;
     private String chambre;
 
     @OneToMany(mappedBy="etudiant")//,cascade = CascadeType.ALL)

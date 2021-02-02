@@ -1,6 +1,7 @@
 package com.agentu_api.bo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.sun.istack.NotNull;
 import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
@@ -17,8 +18,19 @@ public class RendezVous {
     private Date date;
     private String motif;
 
+    public boolean isDisponible() {
+        return disponible;
+    }
+
+    public void setDisponible(boolean disponible) {
+        this.disponible = disponible;
+    }
+
+    private boolean disponible;
 
 
+
+    @NonNull
     @JsonIgnoreProperties({ "rendezVous" })
     @JoinColumn(name = "id")
     private Agent agent;
