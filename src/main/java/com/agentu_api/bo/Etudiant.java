@@ -5,6 +5,7 @@ import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -26,42 +27,42 @@ public class Etudiant {
     private int avisPassage ;
     private int colis;
 
-    public int getDatePetiteEnveloppe() {
+    public Date getDatePetiteEnveloppe() {
         return datePetiteEnveloppe;
     }
 
-    public void setDatePetiteEnveloppe(int datePetiteEnveloppe) {
+    public void setDatePetiteEnveloppe(Date datePetiteEnveloppe) {
         this.datePetiteEnveloppe = datePetiteEnveloppe;
     }
 
-    public int getDateGrandeEnveloppe() {
+    public Date getDateGrandeEnveloppe() {
         return dateGrandeEnveloppe;
     }
 
-    public void setDateGrandeEnveloppe(int dateGrandeEnveloppe) {
+    public void setDateGrandeEnveloppe(Date dateGrandeEnveloppe) {
         this.dateGrandeEnveloppe = dateGrandeEnveloppe;
     }
 
-    public int getDateAvisPassage() {
+    public Date getDateAvisPassage() {
         return dateAvisPassage;
     }
 
-    public void setDateAvisPassage(int dateAvisPassage) {
+    public void setDateAvisPassage(Date dateAvisPassage) {
         this.dateAvisPassage = dateAvisPassage;
     }
 
-    public int getDateColis() {
+    public Date getDateColis() {
         return dateColis;
     }
 
-    public void setDateColis(int dateColis) {
+    public void setDateColis(Date dateColis) {
         this.dateColis = dateColis;
     }
 
-    private int datePetiteEnveloppe;
-    private int dateGrandeEnveloppe;
-    private int dateAvisPassage ;
-    private int dateColis;
+    private Date datePetiteEnveloppe;
+    private Date dateGrandeEnveloppe;
+    private Date dateAvisPassage ;
+    private Date dateColis;
     private String chambre;
 
     @OneToMany(mappedBy="etudiant")//,cascade = CascadeType.ALL)
