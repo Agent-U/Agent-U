@@ -1,8 +1,10 @@
 package com.agentu_api.controller;
 
+import com.agentu_api.bo.Accueil;
 import com.agentu_api.bo.Agent;
 import com.agentu_api.bo.Etudiant;
 import com.agentu_api.service.AgentService;
+import org.json.*;
 import org.springframework.http.HttpEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/agents")
 public class AgentController {
 
-    private static boolean close = false;
+
     private final AgentService agentService;
 
     AgentController(AgentService agentService){
@@ -44,13 +46,24 @@ public class AgentController {
     }
 
     @GetMapping("/isClose")
-    boolean isFerme(){
-        return this.close;
+    Accueil isFerme()  {
+
+      //  String message = "{'accueil' : '" + this.close + "'}" ;
+        //JSONObject json = new JSONObject();
+        //json.put("name", "student");
+
+       // JSONObject jsonObject = new JSONObject(message);
+        return Accueil.getInstance();
     }
     @GetMapping("/switch")
-    boolean switchAccueile(){
-        this.close = !this.close;
-        return this.close;
+    Accueil switchAccueile(){
+        /*if (Accueil.getInstance().isClose() == false)
+            Accueil.getInstance().setClose(true);
+        else*/
+            Accueil.getInstance().setClose();
+
+
+        return Accueil.getInstance();
     }
 }
 

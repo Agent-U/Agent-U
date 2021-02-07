@@ -18,6 +18,7 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class AgentU_Api {
 
+    
     public static void main(String... args){
         SpringApplication.run(AgentU_Api.class, args);
     }
