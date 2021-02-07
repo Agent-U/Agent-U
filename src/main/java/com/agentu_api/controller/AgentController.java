@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/agents")
 public class AgentController {
 
+    private static boolean close = false;
     private final AgentService agentService;
 
     AgentController(AgentService agentService){
@@ -40,6 +41,16 @@ public class AgentController {
     @PutMapping("/")
     void modifierAgent(@RequestBody Agent agent){
         this.agentService.updateAgent(agent);
+    }
+
+    @GetMapping("/isClose")
+    boolean isFerme(){
+        return this.close;
+    }
+    @GetMapping("/switch")
+    boolean switchAccueile(){
+        this.close = !this.close;
+        return this.close;
     }
 }
 

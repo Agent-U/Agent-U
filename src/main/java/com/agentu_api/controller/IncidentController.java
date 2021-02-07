@@ -52,7 +52,9 @@ public class IncidentController {
 
 
         byte[] bytes = file.getBytes();
-        Path path = Paths.get("./images/incidents/" + file.getOriginalFilename());
+        Path path = Paths.get("./../FrontEndEtudiant/src/assets/incidents/" + file.getOriginalFilename());
+        Files.write(path, bytes);
+        path = Paths.get("./../FrontEndAgent/src/assets/incidents/" + file.getOriginalFilename());
         Files.write(path, bytes);
 
 

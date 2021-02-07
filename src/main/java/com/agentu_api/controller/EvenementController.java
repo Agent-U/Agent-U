@@ -58,7 +58,9 @@ public class EvenementController {
         //this.evenementService.upImage(file);
 
         byte[] bytes = file.getBytes();
-        Path path = Paths.get("./images/events/" + file.getOriginalFilename());
+        Path path = Paths.get("./../FrontEndEtudiant/src/assets/events/" + file.getOriginalFilename());
+        Files.write(path, bytes);
+        path = Paths.get("./../FrontEndAgent/src/assets/events/" + file.getOriginalFilename());
         Files.write(path, bytes);
 
 
