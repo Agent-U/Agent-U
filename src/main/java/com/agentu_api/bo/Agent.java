@@ -17,7 +17,7 @@ public class Agent {
     private String nom;
     private String prenom;
 
-    @OneToMany(mappedBy="agent")//,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy="agent",cascade = CascadeType.ALL)//,cascade = CascadeType.ALL)
     @ElementCollection(targetClass=RendezVous.class)
     @JsonIgnoreProperties({ "agent" })
     private List<RendezVous> rendezVous = new ArrayList<>();

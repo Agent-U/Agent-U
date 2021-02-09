@@ -65,13 +65,18 @@ public class Etudiant {
     private Date dateColis;
     private String chambre;
 
-    @OneToMany(mappedBy="etudiant")//,cascade = CascadeType.ALL)
+    @PreRemove
+    private void preRemove() {
+        rendezVous.forEach( child -> child.setEtudiant(null));
+        rendezVous.forEach( child -> child.setDisponible(true));
+    }
+    @OneToMany(mappedBy="etudiant",cascade = CascadeType.REMOVE)//cascade = CascadeType.REMOVE)
     @ElementCollection(targetClass=Incident.class)
     @JsonIgnoreProperties({ "etudiant" })
     private List<Incident> incidents = new ArrayList<>();
 
 
-    @OneToMany(mappedBy="etudiant")//,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy="etudiant",cascade = CascadeType.PERSIST)//cascade = CascadeType.REMOVE)
     @ElementCollection(targetClass=RendezVous.class)
     @JsonIgnoreProperties({ "etudiant"})
     private List<RendezVous> rendezVous = new ArrayList<>();
